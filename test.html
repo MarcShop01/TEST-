@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Firebase</title>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js" type="module"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBbWrhfvhFU7rxUqcwaXa0FF2C-f7Ti3Sk",
+            authDomain: "marcshop-3a594.firebaseapp.com",
+            projectId: "marcshop-3a594",
+            storageBucket: "marcshop-3a594.firebasestorage.app",
+            messagingSenderId: "330349520113",
+            appId: "1:330349520113:web:24dcf3869c616e14b8f550"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        function envoyerTest() {
+            set(ref(db, 'test'), { message: "Firebase fonctionne !" })
+                .then(() => alert("Donnée envoyée !"))
+                .catch((error) => alert("Erreur : " + error.message));
+        }
+
+        // Attacher l'événement onclick au bouton
+        document.getElementById('envoyer-test-btn').addEventListener('click', envoyerTest);
+    </script>
+</head>
+<body>
+    <h1>Test Firebase</h1>
+    <button id="envoyer-test-btn">Envoyer un test</button>
+</body>
+</html>
