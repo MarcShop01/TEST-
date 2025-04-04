@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTikTok</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barre de navigation -->
+        <nav class="navbar">
+            <div class="logo">MyTikTok</div>
+            <div class="search-bar">
+                <input type="text" placeholder="Rechercher..." id="searchInput">
+            </div>
+            <div class="upload-btn" id="createBtn">
+                <i class="fas fa-plus"></i>
+            </div>
+        </nav>
+
+        <!-- Flux vidéo -->
+        <div class="video-feed" id="videoFeed">
+            <!-- Les vidéos seront ajoutées ici par JavaScript -->
+        </div>
+
+        <!-- Barre de navigation inférieure -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-link active"><i class="fas fa-home"></i></a>
+            <a href="#" class="nav-link"><i class="fas fa-search"></i></a>
+            <a href="#" class="nav-link" id="createBtnBottom"><i class="fas fa-plus-square"></i></a>
+            <a href="#" class="nav-link"><i class="fas fa-inbox"></i></a>
+            <a href="#" class="nav-link"><i class="fas fa-user"></i></a>
+        </div>
+
+        <!-- Modal de création -->
+        <div class="modal-overlay" id="createModal">
+            <div class="modal-content">
+                <span class="close-btn" id="closeModal">&times;</span>
+                <h2>Créer une nouvelle vidéo</h2>
+                
+                <div class="video-preview" id="videoPreview">
+                    <div class="record-indicator">
+                        <i class="fas fa-circle"></i> ENREGISTREMENT
+                    </div>
+                    <i class="fas fa-video"></i>
+                    <p>Aucune vidéo sélectionnée</p>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn" id="recordBtn">
+                        <i class="fas fa-video"></i> Filmer
+                    </button>
+                    <button class="btn" id="uploadBtn">
+                        <i class="fas fa-upload"></i> Importer
+                    </button>
+                    <input type="file" id="videoInput" accept="video/*" style="display: none;">
+                </div>
+                
+                <div class="caption-section">
+                    <textarea id="videoCaption" placeholder="Ajoutez une légende..."></textarea>
+                    <button class="btn publish-btn" id="publishBtn">Publier</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
